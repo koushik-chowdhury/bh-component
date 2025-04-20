@@ -1,188 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Goa Electricity</title>
-    <link rel="stylesheet" href="style.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bharat-ui@1.0.27/dist/public/bharat-ui.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Koushik - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      color: #2d3436;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 4rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #dfe6e9 100%);
+    }
+
+    .hero-content {
+      padding: 3rem;
+    }
+    .gradient-heading {
+        font-size: 3rem;
+        font-weight: 600;
+        background: linear-gradient(180deg, #ff623b, #ac5716); /* Peach to light orange */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+    .hero-image {
+      background: url('https://images.unsplash.com/photo-1580894908361-967195033215?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      height: 70vh;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      gap: 2rem;
+      padding: 4rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 5rem 0;
+      color: #2d3436;
+    }
+
+    /* Contact Form */
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+      }
+
+      .hero-image {
+        height: 50vh;
+        order: -1;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="card-container">
-        <div class="content">
-            <bh-card variant="payment-success" imgUrl="connection.webp" backgroundcolor="white" headertextcolor="black"
-                pragraphtextcolor="gray">
-                <h2 slot="card-title" style="text-align: center">New Connection</h2>
-                <p slot="card-description" style="text-align: center">
-                    Apply for a new electricity connection for your home or business.
-                </p>
-                <div slot="card-button">
-                    <bh-button size="medium" background="black" color="white" width="170px">Apply Now</bh-button>
-                </div>
-            </bh-card>
-        </div>
-        <div class="content">
-            <bh-card variant="payment-success"
-                imgUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6v7j-oZuHSlCSzWnheMVNMQf6Wr5ljqcbAg&s"
-                backgroundcolor="white" headertextcolor="black" pragraphtextcolor="gray">
-                <h2 slot="card-title" style="text-align: center">Pay Bill</h2>
-                <p slot="card-description" style="text-align: center">
-                    Pay your electricity bill online quickly and securely
-                </p>
-                <div slot="card-button">
-                    <bh-button size="medium" background="black" color="white" width="170px">Pay Now</bh-button>
-                </div>
-            </bh-card>
-        </div>
-        <div class="content">
-            <bh-card variant="payment-success"
-                imgUrl="https://media.istockphoto.com/id/1204054586/vector/swear-bubble-thin-line-icon-concept-of-explicitives-like-abstract-sign-exclamation-hashtag.jpg?s=612x612&w=0&k=20&c=ENj957s5rw0k4pBeamQxnxaE6wmlWS_IuX873g6zoPw="
-                backgroundcolor="white" headertextcolor="black" pragraphtextcolor="gray">
-                <h2 slot="card-title" style="text-align: center">Complaints</h2>
-                <p slot="card-description" style="text-align: center">
-                    Report power outages, meter issues or other complaints
-                </p>
-                <div slot="card-button">
-                    <bh-button size="medium" background="black" color="white" width="170px">Report Issue</bh-button>
-                </div>
-            </bh-card>
-        </div>
-        <div class="content">
-            <bh-card variant="payment-success"
-                imgUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMv08hBK86WreanSil5BZat7RlrStdXL33vQ&s"
-                backgroundcolor="white" headertextcolor="black" pragraphtextcolor="gray">
-                <h2 slot="card-title" style="text-align: center">History</h2>
-                <p slot="card-description" style="text-align: center">
-                    Apply for a new electricity connection for your home or business
-                </p>
-                <div slot="card-button">
-                    <bh-button size="medium" background="black" color="white" width="170px">View History</bh-button>
-                </div>
-            </bh-card>
-        </div>
+  <!-- Navigation -->
+  <bh-navbar brandingText="Koushik" brandingTextColor="#2d3436" backgroundcolor="rgba(255,255,255,0.95)">
+    <bh-button variant="link" color="#2d3436" hover-color="#e74c3c">Home</bh-button>
+    <bh-button variant="link" color="#2d3436" hover-color="#e74c3c">Work</bh-button>
+    <bh-button variant="link" color="#2d3436" hover-color="#e74c3c">About</bh-button>
+    <bh-button variant="link" color="#2d3436" hover-color="#e74c3c">Contact</bh-button>
+  </bh-navbar>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 style="font-size: 3.5rem; margin: 0 0 1rem;">
+        Hi, I'm <span style="color: #e74c3c;">Koushik Chowdhury</span>
+      </h1>
+      <bh-divider width="80px" height="4px" background="#e74c3c"></bh-divider>
+      <p style="font-size: 1.25rem; color: #636e72; margin: 2rem 0;">
+        Full-stack developer specializing in modern web applications
+      </p>
+      <div style="display: flex; gap: 1rem;">
+        <bh-button 
+          size="large" 
+          background="#e74c3c" 
+          color="white" 
+          hover-background="#2d3436">
+          View Projects
+        </bh-button>
+        <bh-button 
+          variant="outline" 
+          size="large" 
+          color="#2d3436" 
+          border-color="#2d3436"
+          hover-color="#e74c3c">
+          Download CV
+        </bh-button>
+      </div>
     </div>
-    <div class="carousel-parent">
-        <h1 class="gradient-text">Our Projects</h1>
-        <div class="carousel-container">
-            <bh-carousel id="basic-carousel" height="300px" autoplay="true" interval="3000" variant="default"
-                animation="slide">
-                <bh-carousel-item
-                    image="https://cdn.discordapp.com/attachments/1359191583634886736/1362464865024868525/zbynek-burival-V4ZYJZJ3W4M-unsplash.jpg?ex=68047809&is=68032689&hm=a8476a9799fbef53d7ce08cee97fa0fe7c6d3fe7d02b82f08058170249a7d853&"
-                    alt="Library Interior" title="Modern Library"
-                    caption="A peaceful place for reading and learning"></bh-carousel-item>
-                <bh-carousel-item
-                    image="https://cdn.discordapp.com/attachments/1359191583634886736/1362464866224574695/american-public-power-association-VuR4oHZ3ucc-unsplash.jpg?ex=68047809&is=68032689&hm=d842046fd34a741acc66785001a9fd0155f6ebe0a9287b89cd7d7c5a1c3e5118&"
-                    alt="Study Area" title="Study Space"
-                    caption="Dedicated areas for focused learning"></bh-carousel-item>
-                <bh-carousel-item
-                    image="https://cdn.discordapp.com/attachments/1359191583634886736/1362464867864281098/nikola-johnny-mirkovic-Z_dnvde5wxc-unsplash.jpg?ex=68047809&is=68032689&hm=3af2541ebb03d0f0ecbbb1d678b914b9a22a15ffc0345ae0cac58367a5a105d6&"
-                    alt="Book Collection" title="Book Collection"
-                    caption="Extensive collection of books and resources"></bh-carousel-item>
-            </bh-carousel>
+    <div class="hero-image"></div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects">
+    <h2 class="section-title gradient-heading">Featured Work</h2>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <bh-card variant="vertical" 
+        imgUrl="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        border-radius="15px"
+        style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+        <h2 slot="card-title">E-Commerce Platform</h2>
+        <p slot="card-content" style="color: #636e72;">Next.js powered shopping platform</p>
+        <div slot="card-button">
+          <bh-button variant="primary" size="medium">View Details</bh-button>
         </div>
-    </div>
-    <div class="contact">
-        <h1 class="gradient-text">Contact Us</h1>
-        <div class="contact-container">
-            <div class="contact-details">
-                <h2>Get in Touch</h2>
-                <div class="wrapper">
-                    <h3>Head Office</h3>
-                    <p>Vidyut Bhavan, Alto-Porvorim, Goa-403521</p>
-                </div>
-                <div class="wrapper">
-                    <h3>Phone</h3>
-                    <p>+91-832-2412200 (Office Hours: 9:30 AM - 6:00 PM)</p>
-                </div>
-                <div class="wrapper">
-                    <h3>Email</h3>
-                    <p>info.goaelectricity@gov.in</p>
-                    <p>complaints.goaelectricity@gov.in</p>
-                </div>
+      </bh-card>
+
+      <!-- Project 2 -->
+      <bh-card variant="vertical" 
+        imgUrl="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        border-radius="15px"
+        style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+        <h2 slot="card-title">Fitness Mobile App</h2>
+        <p slot="card-content" style="color: #636e72;">React Native health tracking application</p>
+        <div slot="card-button">
+          <bh-button variant="primary" size="medium">View Details</bh-button>
+        </div>
+      </bh-card>
+
+            <!-- Project 3 -->
+            <bh-card variant="vertical" 
+            imgUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            border-radius="15px"
+            style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+            <h2 slot="card-title">Portfolio Website</h2>
+            <p slot="card-content" style="color: #636e72;">Personal portfolio built with BharatUI components</p>
+            <div slot="card-button">
+              <bh-button variant="primary" size="medium">View Details</bh-button>
             </div>
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <bh-input type="text" placeholder="Your Name" border="1px solid #0063FF" width="300px" height="30px"
-                    size="medium" borderRadius="5px" fontSize="24px" border="1px solid #ccc" background="#fff"
-                    placeholderColor="#888" placeholderSize="16px"></bh-input>
-                <bh-input type="text" placeholder="Your Email" border="1px solid #0063FF" width="300px" height="30px"
-                    size="medium" borderRadius="5px" fontSize="24px" border="1px solid #ccc" background="#fff"
-                    placeholderColor="#888" placeholderSize="16px"></bh-input>
-                <bh-input type="text" placeholder="Subject" border="1px solid #0063FF" width="300px" height="30px"
-                    size="medium" borderRadius="5px" fontSize="24px" border="1px solid #ccc" background="#fff"
-                    placeholderColor="#888" placeholderSize="16px"></bh-input>
-                <bh-textarea rows="6" cols="20" border="1px solid #0063FF" borderRadius="8px"
-                    placeholder="Small textarea"></bh-textarea>
-                <bh-button variant="primary" id="message"> Send Message</bh-button>
+          </bh-card>
+    
+          <!-- Project 4 -->
+          <bh-card variant="vertical" 
+            imgUrl="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            border-radius="15px"
+            style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+            <h2 slot="card-title">Blog Platform</h2>
+            <p slot="card-content" style="color: #636e72;">A modern blog platform using Node.js and MongoDB</p>
+            <div slot="card-button">
+              <bh-button variant="primary" size="medium">View Details</bh-button>
             </div>
+          </bh-card>
         </div>
-    </div>
-    <div class="faq-container">
-        <h1 class="gradient-text">Frequently asked Question</h1>
-        <div class="faq">
-            <bh-accordion header="Click to expand">
-                <p>This is the content of the accordion that will be shown or hidden when clicked.</p>
-            </bh-accordion>
-            <bh-accordion header="Click to expand">
-                <p>This is the content of the accordion that will be shown or hidden when clicked.</p>
-            </bh-accordion>
-            <bh-accordion header="Click to expand">
-                <p>This is the content of the accordion that will be shown or hidden when clicked.</p>
-            </bh-accordion>
-            <bh-accordion header="Click to expand">
-                <p>This is the content of the accordion that will be shown or hidden when clicked.</p>
-            </bh-accordion>
+      </section>
+    
+      <!-- Experience Section -->
+      <section class="experience">
+        <h2 class="section-title gradient-heading">Professional Experience</h2>
+        <bh-carousel height="500px" autoplay="true" interval="6000" style="max-width: 1200px; margin: 0 auto;">
+          <bh-carousel-item 
+            image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80"
+            title="Lead Developer @TechInnovators (2020-Present)"
+            caption="Architected cloud-native solutions for enterprise clients">
+          </bh-carousel-item>
+          
+          <bh-carousel-item 
+            image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            title="Senior Engineer @DigitalStudio (2017-2020)"
+            caption="Developed award-winning e-learning platforms">
+          </bh-carousel-item>
+    
+          <bh-carousel-item 
+            image="https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            title="Software Engineer @WebSolutions (2015-2017)"
+            caption="Built responsive web applications for various clients">
+          </bh-carousel-item>
+        </bh-carousel>
+      </section>
+    
+      <!-- Contact Section -->
+      <section class="contact">
+        <h2 class="section-title gradient-heading">Get in Touch</h2>
+        <div class="contact-wrapper">
+          <form class="contact-form">
+            <bh-input 
+              type="text" 
+              placeholder="Your Name"
+              border="2px solid #e74c3c"
+              border-radius="8px"
+              padding="1rem"
+              inputColor="white"
+              background="white"
+
+              width="96%">
+            </bh-input>
+    
+            <bh-input 
+              type="email" 
+              placeholder="Email Address"
+              border="2px solid #e74c3c"
+              border-radius="8px"
+              padding="1rem"
+              inputColor="white"
+              width="96%"
+              background="white"
+              >
+            </bh-input>
+    
+            <bh-textarea 
+             
+              placeholder="Your Message"
+              border="2px solid #e74c3c"
+              borderRadius="8px"
+              padding="1rem"
+              width="100%">
+            </bh-textarea>
+    
+            <bh-button 
+              size="large" 
+              background="#e74c3c" 
+              color="white"
+              width="100%"
+              hover-background="#2d3436"
+              style="margin-top: 1.5rem;">
+              Send Message
+            </bh-button>
+          </form>
         </div>
-    </div>
-    <div class="footer">
+      </section>
+    
+      <!-- Footer -->
+      <bh-footer brandingText="Koushik" columnCount="2" backGroundColor="#2d3436" color="white">
 
-
-        <!--  -->
-        </bh-footer>
-
-        <bh-footer brandingText="BharatUI" columnCount="2" backGroundColor="#060606">
-
-            <p slot="brandingpara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas qui distinctio ullam
-                corporis provident molestiae</p>
-
-            <bh-icon slot="links" name="discord" size="20px" color="#ffffff" class="icon"
-                link="https://github.com/idreamfyrei/coming-soonUI/blob/main/README.md"></bh-icon>
-
-            <bh-icon name="github" slot="links" size="20px" color="#ffffff" class="icon"
-                link="https://github.com/idreamfyrei/coming-soonUI/blob/main/README.md"></bh-icon>
-
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="colone"
-                hover-color="gray">
-                Home
-            </bh-button>
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="colone"
-                hover-color="gray">
-                Pricing
-            </bh-button>
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="colone"
-                hover-color="gray">
-                Docs
-            </bh-button>
-
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="coltwo"
-                hover-color="gray">
-                Privacy Policy
-            </bh-button>
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="coltwo"
-                hover-color="gray">
-                Terms of Service
-            </bh-button>
-            <bh-button variant="link" size="medium" href="https://www.example.com/" color="white" slot="coltwo"
-                hover-color="gray">
-                Pricing Policy
-            </bh-button>
-
-        </bh-footer>
-    </div>
-    <!-- Script -->
-    <script src="script.js"></script>
-</body>
-
-</html>
+        <!-- Branding Paragraph -->
+        <p slot="brandingpara">
+          Empowering developers with reusable components. BharatUI brings speed, style, and simplicity to your web projects.
+        </p>
+      
+        <!-- Social Icons -->
+        <div slot="links" style="display: flex; gap: 1rem;">
+          <bh-icon name="discord" size="24px" color="#ffffff"
+            link="https://discord.com/invite/csakoushik" class="icon"></bh-icon>
+      
+          <bh-icon name="github" size="24px" color="#ffffff"
+            link="https://github.com/koushik-chowdhury class="icon"></bh-icon>
+      
+          <bh-icon name="linkedin" size="24px" color="#ffffff"
+            link="https://www.linkedin.com/in/koushik-chowdhury/" class="icon"></bh-icon>
+        </div>
+      
+        <!-- Column One Links -->
+        <bh-button variant="link" size="medium" href="/" color="white" slot="colone" hover-color="gray">
+          Home
+        </bh-button>
+        <bh-button variant="link" size="medium" href="/pricing" color="white" slot="colone" hover-color="gray">
+          Pricing
+        </bh-button>
+        <bh-button variant="link" size="medium" href="/docs" color="white" slot="colone" hover-color="gray">
+          Docs
+        </bh-button>
+      
+        <!-- Column Two Links -->
+        <bh-button variant="link" size="medium" href="/privacy-policy" color="white" slot="coltwo" hover-color="gray">
+          Privacy Policy
+        </bh-button>
+        <bh-button variant="link" size="medium" href="/terms-of-service" color="white" slot="coltwo" hover-color="gray">
+          Terms of Service
+        </bh-button>
+        <bh-button variant="link" size="medium" href="/pricing-policy" color="white" slot="coltwo" hover-color="gray">
+          Pricing Policy
+        </bh-button>
+      
+      </bh-footer>
+      
+      <script type="module" src="https://cdn.jsdelivr.net/npm/bharat-ui@1.0.36/dist/public/bharat-ui.umd.min.js"></script>
+    </body>
+    </html>
+    
